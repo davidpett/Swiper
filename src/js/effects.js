@@ -6,7 +6,7 @@ s.effects = {
         setTranslate: function () {
             for (var i = 0; i < s.slides.length; i++) {
                 var slide = s.slides.eq(i);
-                var offset = Math.round(slide[0].swiperSlideSize) + 15;
+                var offset = Math.round(slide[0].swiperSlideSize) + s.params.spaceBetween;
                 var tx = s.translate;
                 var ty = 0;
                 if ((i * offset) + tx < 0) {
