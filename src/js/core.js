@@ -394,6 +394,10 @@ if (s.params.effect === 'fade' || s.params.effect === 'flip') {
         s.params.virtualTranslate = true;
     }
 }
+if (s.params.effect === 'stack') {
+  s.params.watchSlidesProgress = true;
+  s.params.virtualTranslate = true;
+}
 
 // Grab Cursor
 if (s.params.grabCursor && s.support.touch) {

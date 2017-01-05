@@ -2,6 +2,40 @@
   Effects
   ===========================*/
 s.effects = {
+    stack: {
+        setTranslate: function () {
+            for (var i = 0; i < s.slides.length; i++) {
+                var slide = s.slides.eq(i);
+                var offset = Math.round(slide[0].swiperSlideSize) + 15;
+                var tx = s.translate;
+                var ty = 0;
+                if ((i * offset) + tx < 0) {
+                  tx = -(i * offset);
+                }
+                slide
+                  .css({ 'z-index': i })
+                  .transform('translate3d(' + tx + 'px, ' + ty + 'px, 0px)');
+
+            }
+
+        },
+        setTransition: function (duration) {
+            s.slides.transition(duration);
+            if (s.params.virtualTranslate && duration !== 0) {
+                var eventTriggered = false;
+                s.slides.transitionEnd(function () {
+                    if (eventTriggered) return;
+                    if (!s) return;
+                    eventTriggered = true;
+                    s.animating = false;
+                    var triggerEvents = ['webkitTransitionEnd', 'transitionend', 'oTransitionEnd', 'MSTransitionEnd', 'msTransitionEnd'];
+                    for (var i = 0; i < triggerEvents.length; i++) {
+                        s.wrapper.trigger(triggerEvents[i]);
+                    }
+                });
+            }
+        }
+    },
     fade: {
         setTranslate: function () {
             for (var i = 0; i < s.slides.length; i++) {
