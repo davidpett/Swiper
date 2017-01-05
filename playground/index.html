@@ -42,21 +42,19 @@
         color:#000;
         text-align: center;
         line-height: 300px;
-        width: 300px;
     }
     </style>
     <script src="../build/js/swiper.js"></script>
     <script>
         var swiper = new Swiper('.swiper-container', {
-            spaceBetween: 15,
-            slidesPerView: 2,
             slideToClickedSlide: true,
             grabCursor: true,
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
             scrollbar: '.swiper-scrollbar',
             pagination: '.swiper-pagination',
-            effect: 'stack'
+            effect: 'stack',
+            direction: 'vertical'
         });
     </script>
 </body>

@@ -10,7 +10,11 @@ s.effects = {
                 var tx = s.translate;
                 var ty = 0;
                 if ((i * offset) + tx < 0) {
-                  tx = -(i * offset);
+                    tx = -(i * offset);
+                }
+                if (!s.isHorizontal()) {
+                    ty = tx;
+                    tx = 0;
                 }
                 slide
                   .css({ 'z-index': i })
